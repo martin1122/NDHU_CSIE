@@ -612,7 +612,6 @@ function wp_unregister_widget_control($id) {
  */
 function dynamic_sidebar( $index = 1 ) {
 	global $wp_registered_sidebars, $wp_registered_widgets;
-
 	if ( is_int( $index ) ) {
 		$index = "sidebar-$index";
 	} else {

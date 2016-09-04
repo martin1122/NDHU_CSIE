@@ -11,49 +11,52 @@
  * @package Catch Themes
  * @subpackage Catch Flames
  */
-get_header(); ?>  
-          	
-			<?php if ( have_posts() ) : ?>
-        
-                <?php /* Start the Loop */ ?>
-                <?php while ( have_posts() ) : the_post(); ?>
-                
-                    <?php get_template_part( 'content', get_post_format() ); ?>
-                
-                <?php endwhile; ?>
-        
-                <?php catchflames_content_nav( 'nav-below' ); ?>
-        
-            <?php else : ?>
-            
-                <article id="post-0" class="post no-results not-found">
-                    <header class="entry-header">
-                        <h1 class="entry-title"><?php _e( 'Nothing Found', 'catch-flames' ); ?></h1>
-                    </header><!-- .entry-header -->
-            
-                    <div class="entry-content">
-                        <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'catch-flames' ); ?></p>
-                        <?php get_search_form(); ?>
-                    </div><!-- .entry-content -->
-                </article><!-- #post-0 -->
-            
-            <?php endif; ?>
-    
-        </div><!-- #content -->
-        
-        <?php 
-        /** 
+get_header(); ?>
+    <?php if ( have_posts() ) : ?>
+    <?php /* Start the Loop */ ?>
+    <header class="page-header">
+        <h1 class="page-title">
+            <span style="font-family: 'Arial','Microsoft JhengHei','黑体','宋体', Dotum, sans-serif; font-size: 18px;color:#58595b ;">
+                最新消息 banner show test,sidebar test
+            </span>
+        </h1>
+    </header>
+    <?php while ( have_posts() ) : the_post(); ?>
+    <table class="main_table">
+    <?php get_template_part( 'content', get_post_format() ); ?>
+    </table>
+    <?php endwhile; ?>
+    <?php catchflames_content_nav( 'nav-below' ); ?>
+    <hr/>
+    <?php else : ?>
+    <article id="post-0" class="post no-results not-found">
+        <header class="entry-header">
+            <h1 class="entry-title"><?php _e( 'Nothing Found', 'catch-flames' ); ?></h1>
+        </header>
+        <!-- .entry-header -->
+        <div class="entry-content">
+            <p>
+                <?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'catch-flames' ); ?>
+            </p>
+            <?php get_search_form(); ?>
+        </div>
+        <!-- .entry-content -->
+    </article>
+    <!-- #post-0 -->
+    <?php endif; ?>
+    </div>
+    <!-- #content -->
+    <?php
+        /**
          * catchflames_after_content hook
          */
         do_action( 'catchflames_after_content' ); ?>
-        
-    </div><!-- #primary -->
-    
-    <?php 
-    /** 
+    </div>
+    <!-- #primary -->
+    <?php
+    /**
      * catchflames_after_primary hook
      */
     do_action( 'catchflames_after_primary' ); ?>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+    <?php get_sidebar(); ?>
+    <?php get_footer(); ?>

@@ -40,7 +40,7 @@ get_header(); ?>
 				</header>
 
 				<?php while ( $blog_query->have_posts() ) : $blog_query->the_post();  ?>
-
+					<?php echo 'test in template-blog.php<br>';?>
 					<?php
 						/* Include the Post-Format-specific template for the content.
 						 * If you want to overload this in a child theme then include a file

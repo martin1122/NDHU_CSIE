@@ -10,74 +10,64 @@
  */
 ?>
                 </div><!-- #content-sidebar-wrap -->
-            
-                <?php 
-                /** 
+                <?php
+                /**
                  * catchflames_after_contentsidebarwrap hook
                  *
                  * @hooked catchflames_third_sidebar - 10
                  */
-                do_action( 'catchflames_after_contentsidebarwrap' );  ?>   
-            
+                do_action( 'catchflames_after_contentsidebarwrap' );  ?>
             </div><!-- .wrapper -->
-     
-            <?php 
-            /** 
+            <?php
+            /**
              * catchflames_after_main_wrapper hook
              */
             do_action( 'catchflames_after_main_wrapper' ); ?>
-                
-        </div><!-- #main -->    
-    
-        <?php 
-        /** 
+        </div><!-- #main -->
+        <?php
+        /**
          * catchflames_after_main hook
          */
-        do_action( 'catchflames_after_main' ); ?>   
-        
-    </div><!-- #main-wrapper -->     
-    
-	<?php 
-    /** 
+        do_action( 'catchflames_after_main' ); ?>
+    </div><!-- #main-wrapper -->
+	<?php
+    /**
      * catchflames_before_footer hook
 	 *
 	 * @hooked catchflames_footer_menu - 10
      */
-    do_action( 'catchflames_before_footer' ); ?> 
-         
+    do_action( 'catchflames_before_footer' );
+    ?>
     <footer id="colophon" role="contentinfo">
-    
     	<?php
-        /** 
+        /**
          * catchflames_footer hook
          *
          * @hooked catchflames_footer_sidebar - 10
-         */	
+         */
         do_action( 'catchflames_footer' ); ?>
-        
   		<?php
-        /** 
+        /**
          * catchflames_site_generator hook
          *
          * @hooked catchflames_site_generator_open - 10
 		 * @hooked catchflames_footer_social - 20
 		 * @hooked catchflames_footer_content - 30
 		 * @hooked catchflames_site_generator_close - 100
-         */		 
-        do_action( 'catchflames_site_generator' ); ?>        
-        
+         */
+        do_action( 'catchflames_site_generator' );
+        ?>
 	</footer><!-- #colophon -->
-    
-	<?php 
-    /** 
+	<?php
+    /**
      * catchflames_after_footer hook
      */
-    do_action( 'catchflames_after_footer' ); ?>    
+    do_action( 'catchflames_after_footer' ); ?>
 
 </div><!-- #page -->
 
-<?php 
-/** 
+<?php
+/**
  * catchflames_after hook
  *
  * @hooked catchflames_mobile_menus - 10

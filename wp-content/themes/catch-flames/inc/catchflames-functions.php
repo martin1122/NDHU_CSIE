@@ -482,7 +482,7 @@ function catchflames_posted_on() {
 	* But if the author have added their Website in Profile page then it will link to author website
 	*/
 	if ( get_the_author_meta( 'user_url' ) != '' ) {
-		$catchflames_author_url = 	esc_url( get_the_author_meta( 'user_url' ) );
+		$catchflames_author_url = 	esc_url(  get_the_author_meta( 'user_url' ) );
 	}
 	else {
 		$catchflames_author_url = esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) );
@@ -499,6 +499,66 @@ function catchflames_posted_on() {
 }
 endif; //catchflames_posted_on
 
+if ( ! function_exists( 'catchflames_posted_on_time' ) ) :
+/**
+ * 160828 tarocattle edit
+ * show time function
+ */
+function catchflames_posted_on_time() {
+	/* Check Author URL to Support Google Authorship
+	*
+	* By deault the author will link to author archieve page
+	* But if the author have added their Website in Profile page then it will link to author website
+	*/
+	printf( __('
+		<span class="sep"></span>
+		<time class="main_table_time_date" datetime="%3$s" pubdate>%4$s</time>
+		<div class="main_table_time_clock">%2$s</div>
+		', 'tarocattle' ),
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		$catchflames_author_url,
+		esc_attr( sprintf( __( 'View all posts by %s', 'tarocattle' ), get_the_author() ) ),get_the_author()
+	);
+}
+endif; //catchflames_posted_on_time
+
+if ( ! function_exists( 'catchflames_posted_on_author' ) ) :
+/**
+ * 160821 tarocattle edit
+ * show author function
+ */
+function catchflames_posted_on_author() {
+	/* Check Author URL to Support Google Authorship
+	*
+	* By deault the author will link to author archieve page
+	* But if the author have added their Website in Profile page then it will link to author website
+	*/
+	if ( get_the_author_meta( 'user_url' ) != '' ) {
+		$catchflames_author_url = 	esc_url(  get_the_author_meta( 'user_url' ) );
+	}
+	else {
+		$catchflames_author_url = esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) );
+	}
+	printf( __( '
+		<span class="sep"></span>
+		<span class="by-author">
+			<span class="author vcard">
+				<a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a>
+			</span>
+		</span>', 'tarocattle' ),
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		$catchflames_author_url,
+		esc_attr( sprintf( __( '查看 %s 所有文章 | View all posts by %s', 'tarocattle' ), get_the_author() , get_the_author()) ),
+		get_the_author()
+	);
+}
+endif; //catchflames_posted_on_author
 
 if ( ! function_exists( 'catchflames_body_classes' ) ) :
 /**
@@ -1050,10 +1110,13 @@ function catchflames_footer_content() {
 		echo '<!-- refreshing cache -->';
 
         $catchflames_footer_content = catchflames_assets();
+        /*====tarocattle edit 160829====*/
+        /* catchflames_assets() in inc/panel/theme-options.php */
 
     	set_transient( 'catchflames_footer_content', $catchflames_footer_content, 86940 );
     }
-	echo $catchflames_footer_content;
+	echo "$catchflames_footer_content";
+
 }
 add_action( 'catchflames_site_generator', 'catchflames_footer_content', 30 );
 
@@ -1098,6 +1161,7 @@ if ( ! function_exists( 'catchflames_promotion_headline' ) ) :
  * @since Catch Flames 3.0
  */
 function catchflames_promotion_headline() {
+	//echo "1 do catchflames_before_main<br>";
 	delete_transient( 'catchflames_promotion_headline' );
 
 	global $post, $wp_query, $catchflames_options_settings;
@@ -1117,7 +1181,7 @@ function catchflames_promotion_headline() {
 	else {
 		$promotion_headline_url = $options[ 'promotion_headline_url' ];
 	}
-
+	//echo "2 do catchflames_before_main<br>";
 	// Front page displays in Reading Settings
 	$page_on_front = get_option('page_on_front') ;
 	$page_for_posts = get_option('page_for_posts');
@@ -1154,7 +1218,6 @@ function catchflames_promotion_headline() {
 
 				set_transient( 'catchflames_promotion_headline', $catchflames_promotion_headline, 86940 );
 			}
-
 			echo $catchflames_promotion_headline;
 	}
 }

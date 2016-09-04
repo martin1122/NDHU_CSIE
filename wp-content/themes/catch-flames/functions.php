@@ -380,3 +380,14 @@ add_action( 'after_setup_theme', 'catchflames_site_icon_migrate' );
 
 //Include customizer options
 require get_template_directory() . '/inc/panel/customizer/customizer.php';
+
+/*==== control article num 160821 tarocattle edit ====*/
+
+/*function more_posts_on_archive($query) {
+	if($query->is_main_query()){
+		$query->set('posts_per_page', 10);
+	}
+}
+add_action('pre_get_posts', 'more_posts_on_archive');*/
+
+/*==== control article num 160821 tarocattle edit ====*/

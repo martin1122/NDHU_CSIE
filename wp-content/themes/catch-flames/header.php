@@ -105,7 +105,10 @@ do_action( 'catchflames_before' ); ?>
 		 *
 		 * @hooked catchflames_slider_display - 10 if full width image slide is selected
          */
-        do_action( 'catchflames_before_main' ); ?>
+        //echo "before main start<br>";
+        do_action( 'catchflames_before_main' );
+        //echo "before main end<br>";
+        ?>
 
 		<div id="main">
 
@@ -113,15 +116,16 @@ do_action( 'catchflames_before' ); ?>
             /**
              * catchflames_before_main_wrapper hook
              */
-            do_action( 'catchflames_before_main_wrapper' ); ?>
-
+            do_action( 'catchflames_before_main_wrapper' );
+            ?>
             <div class="wrapper">
 
                 <?php
                 /**
                  * catchflames_before_contentsidebarwrap hook
                  */
-                do_action( 'catchflames_before_contentsidebarwrap' ); ?>
+                do_action( 'catchflames_before_contentsidebarwrap' );
+                ?>
 
                 <div class="content-sidebar-wrap">
 
@@ -147,4 +151,4 @@ do_action( 'catchflames_before' ); ?>
                              *
                              * @hooked catchflames_slider_display - 10 if full width image slide is not selected
                              */
-                            do_action( 'catchflames_content' );
+                            do_action( 'catchflames_content' );?>

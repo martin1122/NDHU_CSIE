@@ -1724,6 +1724,6 @@ function catchflames_theme_author() {
  * @return string
  */
 function catchflames_assets(){
-    $catchflames_content = '<div class="copyright">'. esc_attr__( 'Copyright', 'catch-flames' ) . ' &copy; '. catchflames_the_year() . ' ' . catchflames_site_link() . ' ' . esc_attr__( 'All Rights Reserved', 'catch-flames' ) . '.</div><div class="powered">'. catchflames_theme_name() . catchflames_theme_author() . '</div>';
+    $catchflames_content = '<div class="copyright">'. esc_attr__( 'Copyright', 'catch-flames' ) . ' &copy; '. catchflames_the_year() . ' ' . catchflames_site_link() . ' ' . esc_attr__( 'All Rights Reserved', 'catch-flames' ) . '.</div>';/*<div class="powered">'. catchflames_theme_name() . catchflames_theme_author() . '</div>';*/
     return $catchflames_content;
 }
